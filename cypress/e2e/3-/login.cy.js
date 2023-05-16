@@ -6,17 +6,23 @@ describe("Login Feature", () => {
   });
 
   it("Successfull", () => {
+    /** default command */
     // cy.get(".oxd-input[name='username']").type(users.username);
     // cy.wait(1000);
     // cy.get(".oxd-input[name='password']").type(users.password);
     // cy.wait(1000);
     // cy.get(".oxd-button").click();
 
-    cy.getByData(".oxd-input[name='username']").type(users.username);
-    cy.wait(1000);
-    cy.getByData(".oxd-input[name='password']").type(users.password);
-    cy.wait(1000);
-    cy.getByData(".oxd-button").click();
+    /** custom command */
+    // cy.getByData(".oxd-input[name='username']").type(users.username);
+    // cy.wait(1000);
+    // cy.getByData(".oxd-input[name='password']").type(users.password);
+    // cy.wait(1000);
+    // cy.getByData(".oxd-button").click();
+    // cy.get(".oxd-topbar-header-title").should("have.text", "Dashboard");
+
+    /** custom command with parameter */
+    cy.login(users.username, users.password);
     cy.get(".oxd-topbar-header-title").should("have.text", "Dashboard");
   });
 
