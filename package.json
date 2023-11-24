@@ -1,6 +1,19 @@
 {
+  "author": "faisalakml",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:login": "cypress run --spec cypress/e2e/login",
+    "combine-reports": "mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json",
+    "generate-report": "marge --reportDir cypress/reports --reportFilename index mochawesome.json"
+  },
   "devDependencies": {
+    "csv-parser": "^3.0.0",
     "cypress": "^12.12.0",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "fs": "^0.0.1-security",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

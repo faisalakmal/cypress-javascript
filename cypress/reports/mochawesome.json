@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-24T12:54:56.681Z",
+    "end": "2023-11-24T12:55:08.574Z",
+    "duration": 11893,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0c4e9e83-815b-4c73-99ee-921acd82a239",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login\\login.cy.js",
+      "file": "cypress\\e2e\\login\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1554ab51-c8ef-43a3-8d19-ec8cf8fda349",
+          "title": "Login Feature",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Success to login without fixtures and without custom command",
+              "fullTitle": "Login Feature Success to login without fixtures and without custom command",
+              "timedOut": null,
+              "duration": 5890,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users\").then(() => {\n  cy.get('[data-test=\"username\"]').type(\"standard_user\");\n  cy.wait(1000);\n  cy.get('[data-test=\"password\"]').type(\"secret_sauce\");\n  cy.wait(1000);\n  cy.get(\"#login-button\").click();\n  cy.get(\".product_label\").should(\"be.visible\");\n});",
+              "err": {},
+              "uuid": "5e1ae042-d6a1-4325-ac50-9c80ce85772d",
+              "parentUUID": "1554ab51-c8ef-43a3-8d19-ec8cf8fda349",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Success to login without fixtures and custom command with parameter",
+              "fullTitle": "Login Feature Success to login without fixtures and custom command with parameter",
+              "timedOut": null,
+              "duration": 2901,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(\"standard_user\", \"secret_sauce\");",
+              "err": {},
+              "uuid": "021d929f-197e-4aa1-81a7-af62b2e2ec3e",
+              "parentUUID": "1554ab51-c8ef-43a3-8d19-ec8cf8fda349",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Success to login with fixtures and custom command with parameter",
+              "fullTitle": "Login Feature Success to login with fixtures and custom command with parameter",
+              "timedOut": null,
+              "duration": 2949,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.logins(\"standardUser\");",
+              "err": {},
+              "uuid": "a4ab9d87-3d4c-45db-a266-fa6dcb0d11fe",
+              "parentUUID": "1554ab51-c8ef-43a3-8d19-ec8cf8fda349",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e1ae042-d6a1-4325-ac50-9c80ce85772d",
+            "021d929f-197e-4aa1-81a7-af62b2e2ec3e",
+            "a4ab9d87-3d4c-45db-a266-fa6dcb0d11fe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11740,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,16 +1,25 @@
-/// <reference types="Cypress" />
-/// <reference types="cypress-xpath" />
-
-Cypress.Commands.add("getByData", (selector) => {
-  return cy.get(`${selector}`);
+Cypress.Commands.add("login", (username, password) => {
+  cy.get('[data-test="username"]').type(username);
+  cy.wait(1000);
+  cy.get('[data-test="password"]').type(password);
+  cy.wait(1000);
+  cy.get("#login-button").click();
 });
 
-Cypress.Commands.add("login", (username, password) => {
-  // cy.get(".oxd-input[name='username']").type(username);
-  // cy.get(".oxd-input[name='password']").type(password);
-  // cy.get(".oxd-button").click();
-
-  cy.xpath("//input[@name='username']").type(username);
-  cy.xpath("//input[@name='password']").type(password);
-  cy.xpath("//button[@type='submit']").click();
+Cypress.Commands.add("logins", (userType) => {
+  cy.fixture("loginData").then((userData) => {
+    const user = userData[userType];
+    if (user) {
+      cy.get('[data-test="username"]').type(user.username);
+      cy.wait(1000);
+      cy.get('[data-test="password"]').type(user.password);
+      cy.wait(1000);
+      cy.get("#login-button").click();
+      cy.get(".product_label").should("be.visible");
+    } else {
+      throw new Error(
+        `User type "${userType}" not found in loginData fixture.`
+      );
+    }
+  });
 });

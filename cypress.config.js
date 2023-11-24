@@ -4,8 +4,14 @@ module.exports = defineConfig({
   // viewportHeight: 500,
   // viewportWidth: 500,
   defaultCommandTimeout: 3000,
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: true,
+    html: true,
+    json: true,
+  },
   e2e: {
-    baseUrl: "https://opensource-demo.orangehrmlive.com/",
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
