@@ -1,20 +1,22 @@
+import loginPage from "./pages/loginPage";
+
 Cypress.Commands.add("login", (username, password) => {
-  cy.get('[data-test="username"]').type(username);
+  loginPage.fillUsername(username);
   cy.wait(1000);
-  cy.get('[data-test="password"]').type(password);
+  loginPage.fillPassword(password);
   cy.wait(1000);
-  cy.get("#login-button").click();
+  loginPage.buttonLogin();
 });
 
 Cypress.Commands.add("logins", (userType) => {
   cy.fixture("loginData").then((userData) => {
     const user = userData[userType];
     if (user) {
-      cy.get('[data-test="username"]').type(user.username);
+      loginPage.fillUsername(user.username);
       cy.wait(1000);
-      cy.get('[data-test="password"]').type(user.password);
+      loginPage.fillPassword(user.password);
       cy.wait(1000);
-      cy.get("#login-button").click();
+      loginPage.buttonLogin();
       cy.get(".product_label").should("be.visible");
     } else {
       throw new Error(

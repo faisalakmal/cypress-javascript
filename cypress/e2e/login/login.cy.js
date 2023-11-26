@@ -18,7 +18,7 @@ describe("Login Feature", () => {
     cy.login("standard_user", "secret_sauce");
   });
 
-  it("Success to login with fixtures and custom command with parameter", () => {
+  it.only("Success to login with fixtures and custom command with parameter", () => {
     cy.logins("standardUser");
   });
 });

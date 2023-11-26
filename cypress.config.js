@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   // viewportHeight: 500,
   // viewportWidth: 500,
-  defaultCommandTimeout: 3000,
+  // defaultCommandTimeout: 2000,
   reporter: "mochawesome",
   reporterOptions: {
     reportDir: "cypress/reports",
@@ -11,9 +11,5 @@ module.exports = defineConfig({
     html: true,
     json: true,
   },
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
+  e2e: {},
 });
