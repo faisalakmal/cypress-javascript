@@ -8,8 +8,8 @@ Cypress.Commands.add("login", (username, password) => {
   loginPage.buttonLogin();
 });
 
-Cypress.Commands.add("logins", (userType) => {
-  cy.fixture("loginData").then((userData) => {
+Cypress.Commands.add("loginCustom", userType => {
+  cy.fixture("loginData").then(userData => {
     const user = userData[userType];
     if (user) {
       loginPage.fillUsername(user.username);
@@ -17,7 +17,7 @@ Cypress.Commands.add("logins", (userType) => {
       loginPage.fillPassword(user.password);
       cy.wait(1000);
       loginPage.buttonLogin();
-      cy.get(".product_label").should("be.visible");
+      cy.get('[data-test="title"]').should("be.visible");
     } else {
       throw new Error(
         `User type "${userType}" not found in loginData fixture.`
