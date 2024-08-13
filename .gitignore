@@ -1,4 +1,5 @@
 /node_modules
-/videos
 /reports
+/screenshots
+/videos
 # cypress.env.json
